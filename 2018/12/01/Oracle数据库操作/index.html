@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Oracle数据库操作 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="ORACLE简述ORACLE下载与安装ORACLE常用操作sqlplus wzhdb/wzhdb@ip/wzhdb ######################### ###表相关操作############ ######################### cert cert_scene seal seal_certseal_log operation_log  temp_file_pdfpr">
+<meta name="keywords" content="数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Oracle数据库操作">
+<meta property="og:url" content="http://yoursite.com/2018/12/01/Oracle数据库操作/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="ORACLE简述ORACLE下载与安装ORACLE常用操作sqlplus wzhdb/wzhdb@ip/wzhdb ######################### ###表相关操作############ ######################### cert cert_scene seal seal_certseal_log operation_log  temp_file_pdfpr">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-06-07T19:13:01.056Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Oracle数据库操作">
+<meta name="twitter:description" content="ORACLE简述ORACLE下载与安装ORACLE常用操作sqlplus wzhdb/wzhdb@ip/wzhdb ######################### ###表相关操作############ ######################### cert cert_scene seal seal_certseal_log operation_log  temp_file_pdfpr">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Oracle数据库操作" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/01/Oracle数据库操作/" class="article-date">
+  <time datetime="2018-12-01T12:10:46.000Z" itemprop="datePublished">2018-12-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Oracle数据库操作
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="ORACLE简述"><a href="#ORACLE简述" class="headerlink" title="ORACLE简述"></a>ORACLE简述</h1><h1 id="ORACLE下载与安装"><a href="#ORACLE下载与安装" class="headerlink" title="ORACLE下载与安装"></a>ORACLE下载与安装</h1><h1 id="ORACLE常用操作"><a href="#ORACLE常用操作" class="headerlink" title="ORACLE常用操作"></a>ORACLE常用操作</h1><p>sqlplus wzhdb/wzhdb@ip/wzhdb</p>
+<p>#########################</p>
+<p>###表相关操作############</p>
+<p>#########################</p>
+<p>cert cert_scene seal seal_cert<br>seal_log operation_log  temp_file_pdf<br>proof_pdf proof_pdf_seal </p>
+<p>truncate table cert;<br>truncate table cert_scene;<br>truncate table seal;<br>truncate table seal_cert;<br>truncate table seal_log;<br>truncate table operation_log;<br>truncate table temp_file_pdf;<br>truncate table proof_pdf;<br>truncate table proof_pdf_seal ;</p>
+<p>truncate table </p>
+<p>如何查看库的编码</p>
+<p>select <em> from tabs; 与select </em> from tab; 的区别？<br>select <em> from all_users;<br>select </em> from all_users where owner=’WZHDB’;</p>
+<p>select ‘DELETE FROM’ || table_name ||’;’ FROM USER_TABLES ORDER BY TABLE_NAME;</p>
+<p>查询某个表有多少条数据？</p>
+<p>################</p>
+<p>###会话相关操作###</p>
+<p>################</p>
+<p>###用户相关操作###</p>
+<p>################<br>create user wzhdb identified by wzhdb;<br>grant connect,dba,resource to test;<br>drop user user_name cascade; 加了cascade将把用户连带的数据全部删掉</p>
+<p>################<br>查询oracle的连接数<br>select count(*) from v$session；</p>
+<p>查询用户会话<br>select username,serial#,sid from v$session;<br>删除用户会话<br>alter system kill session ‘serial#，sid’;</p>
+<p>################</p>
+<p>###库相关操作###</p>
+<p>################<br>查询当前有哪些库<br>select * from v$database;<br>select name from v$database;</p>
+<p>倒库操作<br>exp wzhdb/wzhdb1234 owner=wzhdb file=wzhdb20181124exp.dmp log=wzhdb20181124exp.log</p>
+<p>imp test/test file=wzhdb20181122.dmp fromuser=wzhdb touser=test<br>imp wzhdb/wzhdb1234 file=wzhdb20181120.dmp log=wzhdb20181120imp.log ignore=y  fromuser=wzhdb touser=wzhdb    如果这里不填ignore=y 则如果已经有表了，则报失败，否则直接插入数据。</p>
+<p>####################</p>
+<p>###表空间相关操作###</p>
+<p>####################<br>查看当前用户使用的表空间情况  default_tablespace表示默认的表空间<br>select <em> from user_users;<br>select username from user_users;<br>查询oracle下面所有的表空间<br>select </em> from Dba_TableSpaces;<br>查询当前用户的角色<br>select * from user_role_privs;<br>删除表空间<br>drop tablespace xxx including contents and datafiles；</p>
+<h1 id="Oracle常见问题"><a href="#Oracle常见问题" class="headerlink" title="Oracle常见问题"></a>Oracle常见问题</h1><h2 id="1-oracle11g默认创建用户的密码有效期为180天的解决方法"><a href="#1-oracle11g默认创建用户的密码有效期为180天的解决方法" class="headerlink" title="1  oracle11g默认创建用户的密码有效期为180天的解决方法"></a>1  oracle11g默认创建用户的密码有效期为180天的解决方法</h2><p><a href="https://blog.csdn.net/chenxing_/article/details/42348559" target="_blank" rel="noopener">https://blog.csdn.net/chenxing_/article/details/42348559</a></p>
+<p>Oracle提示错误消息ORA-28001: the password has expired, 经调查是由于Oracle11G的新特性所致， Oracle11G创建用户时缺省密码过期限制是180天， 如果超过180天用户密码未做修改则该用户无法登录。 </p>
+<p>可通过</p>
+<p>SELECT * FROM dba_profiles WHERE profile=’DEFAULT’ AND resource_name=’PASSWORD_LIFE_TIME’</p>
+<p>语句查询口令有效期设置， LIMIT字段是密码有效天数。在密码将要过期或已经过期时可通过</p>
+<p>ALTER USER test IDENTIFIED BY password;</p>
+<p>语句进行修改密码，密码修改后该用户可正常连接数据库。长久对应可通过</p>
+<p>ALTER PROFILE DEFAULT LIMIT PASSWORD_LIFE_TIME UNLIMITED;</p>
+<p>语句将口令有效期默认值180天修改成“无限制”。出于数据库安全性考虑，不建议将PASSWORD_LIFE_TIME值设置成UNLIMITED，即建议客户能够定期修改数据库用户口令。</p>
+<p>SELECT * FROM dba_profiles WHERE profile=’DEFAULT’ AND resource_name=’PASSWORD_LIFE_TIME’;<br>ALTER PROFILE DEFAULT LIMIT PASSWORD_LIFE_TIME UNLIMITED;</p>
+<p>下面可以查询系统中的用户和创建的用户，通过created字段可以看到创建的时间，默认从此刻起，6个月后就密码过期了。就会报ORA-28001: the password has expired 的错误。</p>
+<p>select * from dba_users t where t.username = ‘EPLATFORMTEST’</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/12/01/Oracle数据库操作/" data-id="cjwmh2dbd0007wcpm5vg1dvng" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/12/01/Mysql数据库操作/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Mysql数据库操作
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/12/01/Typora/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Typora ---简洁好用的Markdown编辑器</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具，-markdown/">工具， markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/工具，-markdown/" style="font-size: 10px;">工具， markdown</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/06/08/SpringBoot使用说明/">SpringBoot使用说明</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/02/编写Shell脚本/">编写Shell脚本</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/02/GIT操作/">GIT操作</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/02/搭建WIKI/">搭建WIKI</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/01/OpenSSL相关操作/">OpenSSL相关操作</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
