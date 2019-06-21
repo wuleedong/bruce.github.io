@@ -88,7 +88,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/01/Linux下常用操作/" data-id="cjwmw0cwu0002gwpmiz47mhfk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/01/Linux下常用操作/" data-id="cjx68nywz00013opmtk4xqwkp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -127,7 +127,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/01/编码详述/" data-id="cjwmw0cyy000qgwpmyj3p386q" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/01/编码详述/" data-id="cjx68nz2m000p3opmujz2v3il" class="article-share-link">Share</a>
       
       
     </footer>
@@ -183,7 +183,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/01/Maven使用说明/" data-id="cjwmw0cwz0004gwpmdhpvahoq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/01/Maven使用说明/" data-id="cjx68nyxe00033opmhiy4dk7r" class="article-share-link">Share</a>
       
       
     </footer>
@@ -222,7 +222,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/01/eclipse使用说明/" data-id="cjwmw0cye000kgwpmxrq7yl9f" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/01/eclipse使用说明/" data-id="cjx68nz20000j3opmlu9jfnv0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -258,7 +258,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/01/WAS使用/" data-id="cjwmw0cya000hgwpm3li4d1km" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/01/WAS使用/" data-id="cjx68nz1p000e3opmn6v5jlni" class="article-share-link">Share</a>
       
       
     </footer>
@@ -294,7 +294,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/01/Weblogic使用/" data-id="cjwmw0cyc000jgwpmqrl0qaoc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/01/Weblogic使用/" data-id="cjx68nz1v000h3opm8dpx6vzo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -330,7 +330,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/01/Tomcat使用/" data-id="cjwmw0cy6000egwpm5h6cebxx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/01/Tomcat使用/" data-id="cjx68nz1l000d3opma51xifn8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -366,7 +366,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/01/Mysql数据库操作/" data-id="cjwmw0cx90006gwpmqoefvirl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/01/Mysql数据库操作/" data-id="cjx68nyxl00063opmmuq51pgd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -398,7 +398,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="ORACLE简述"><a href="#ORACLE简述" class="headerlink" title="ORACLE简述"></a>ORACLE简述</h1><h1 id="ORACLE下载与安装"><a href="#ORACLE下载与安装" class="headerlink" title="ORACLE下载与安装"></a>ORACLE下载与安装</h1><h1 id="ORACLE常用操作"><a href="#ORACLE常用操作" class="headerlink" title="ORACLE常用操作"></a>ORACLE常用操作</h1><p>sqlplus wzhdb/wzhdb@ip/wzhdb</p>
+        <h1 id="ORACLE简述"><a href="#ORACLE简述" class="headerlink" title="ORACLE简述"></a>ORACLE简述</h1><h1 id="ORACLE下载与安装"><a href="#ORACLE下载与安装" class="headerlink" title="ORACLE下载与安装"></a>ORACLE下载与安装</h1><h1 id="ORACLE常用操作"><a href="#ORACLE常用操作" class="headerlink" title="ORACLE常用操作"></a>ORACLE常用操作</h1><p>以sysdba的身份连接登录到命令行界面</p>
+<p>1 创建用户 <strong>12c版本用户名要在前面增加C##</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">user</span> xxx <span class="keyword">identified</span> <span class="keyword">by</span> xxx;</span><br></pre></td></tr></table></figure>
+<p>2 用户授权 </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">grant</span> <span class="keyword">create</span> <span class="keyword">session</span>, <span class="keyword">connect</span>, <span class="keyword">resource</span> <span class="keyword">to</span> xxx;</span><br></pre></td></tr></table></figure>
+<p>sqlplus wzhdb/wzhdb@ip/wzhdb</p>
 <p>#########################</p>
 <p>###表相关操作############</p>
 <p>#########################</p>
@@ -436,11 +441,11 @@
 <p>SELECT * FROM dba_profiles WHERE profile=’DEFAULT’ AND resource_name=’PASSWORD_LIFE_TIME’;<br>ALTER PROFILE DEFAULT LIMIT PASSWORD_LIFE_TIME UNLIMITED;</p>
 <p>下面可以查询系统中的用户和创建的用户，通过created字段可以看到创建的时间，默认从此刻起，6个月后就密码过期了。就会报ORA-28001: the password has expired 的错误。</p>
 <p>select * from dba_users t where t.username = ‘EPLATFORMTEST’</p>
-
+<h2 id="2-Navicat-Premium工具如何登陆oracle"><a href="#2-Navicat-Premium工具如何登陆oracle" class="headerlink" title="2 Navicat Premium工具如何登陆oracle"></a>2 Navicat Premium工具如何登陆oracle</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/01/Oracle数据库操作/" data-id="cjwmw0cxf0008gwpmvvbso8xq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/01/Oracle数据库操作/" data-id="cjx68nyxq000a3opm2cb11ohp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
@@ -642,7 +647,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/01/Typora/" data-id="cjwmw0cy8000ggwpmlktyvlu6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/01/Typora/" data-id="cjx68nz1s000f3opmnmkwgkxb" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具，-markdown/">工具， markdown</a></li></ul>
