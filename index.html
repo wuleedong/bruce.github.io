@@ -155,6 +155,176 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-优秀的springBoot框架后管系统-若依" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/29/优秀的springBoot框架后管系统-若依/">优秀的springBoot框架后管系统-若依</a>
+    </h1>
+  
+
+		<!-- 显示阅读和评论数 -->
+        
+        
+        <a href="/2019/06/29/优秀的springBoot框架后管系统-若依/" class="archive-article-date">
+  	<time datetime="2019-06-29T10:08:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/06/29/优秀的springBoot框架后管系统-若依/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-常见的几种存储方案" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/23/常见的几种存储方案/">常见的几种存储方案</a>
+    </h1>
+  
+
+		<!-- 显示阅读和评论数 -->
+        
+        
+        <a href="/2019/06/23/常见的几种存储方案/" class="archive-article-date">
+  	<time datetime="2019-06-23T03:01:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2><p>常见的存储相关方案</p>
+<p>FTP SFTP</p>
+<p>NFS </p>
+<p>SAMBA</p>
+<p>NAS</p>
+<p>fastDFS</p>
+<p>数据库</p>
+<h2 id="FastDFS"><a href="#FastDFS" class="headerlink" title="FastDFS"></a>FastDFS</h2><p>版权声明：本段FastDFS源引参考博主原创文章，查看原文章，请访问：<a href="http://blog.csdn.net/xingjiarong" target="_blank" rel="noopener">http://blog.csdn.net/xingjiarong</a> <a href="https://blog.csdn.net/xingjiarong/article/details/50559849" target="_blank" rel="noopener">https://blog.csdn.net/xingjiarong/article/details/50559849</a></p>
+<h3 id="一、FastDFS简介"><a href="#一、FastDFS简介" class="headerlink" title="一、FastDFS简介"></a>一、FastDFS简介</h3><p>FastDFS是一款开源的、分布式文件系统（Distributed File System），由淘宝开发平台部资深架构师余庆开发。作为一个分布式文件系统，它对文件进行管理，功能包括：文件存储、文件同步、文件访问（文件上传、文件下载）等，解决了大容量存储和负载均衡的问题，特别适合中小文件（建议范围：4KB&lt;file_size&lt;500MB），对以文件为载体的在线服务，如相册网站、视频网站等等具有显著的效果。</p>
+<h3 id="二、FastDFS架构"><a href="#二、FastDFS架构" class="headerlink" title="二、FastDFS架构"></a>二、FastDFS架构</h3><p>FastDFS由客户端、跟踪服务器和存储服务器构成，基本架构如下图所示。</p>
+<p><img src="https://img-blog.csdn.net/20160122094542770" alt="img"></p>
+<ul>
+<li><h4 id="客户端-Client"><a href="#客户端-Client" class="headerlink" title="客户端-Client"></a>客户端-Client</h4></li>
+</ul>
+<p>​        客户端，作为业务请求的发起方，通过专有接口，使用TCP/IP协议与跟踪器服务器或存储节点进行数据交互。</p>
+<ul>
+<li><h4 id="跟踪服务器-Tracker-Server"><a href="#跟踪服务器-Tracker-Server" class="headerlink" title="跟踪服务器-Tracker Server"></a>跟踪服务器-Tracker Server</h4></li>
+</ul>
+<p>​        Tracker是FastDFS的协调者，负责管理所有的storage server和group，每个storage在启动后会连接Tracker，告知自己所属的group等信息，并保持周期性的心跳，tracker根据storage的心跳信息，建立group==&gt;[storage serverlist]的映射表。</p>
+<p>Tracker需要管理的元信息很少，会全部存储在内存中；另外tracker上的元信息都是由storage汇报的信息生成的，本身不需要持久化任何数据，这样使得tracker非常容易扩展，直接增加tracker机器即可扩展为tracker cluster来服务，cluster里每个tracker之间是完全对等的，所有的tracker都接受stroage的心跳信息，生成元数据信息来提供读写服务。</p>
+<ul>
+<li><h4 id="存储服务器-Storage-Server"><a href="#存储服务器-Storage-Server" class="headerlink" title="存储服务器-Storage Server"></a>存储服务器-Storage Server</h4></li>
+</ul>
+<p>​        Storage server（后简称storage）以组（卷，group或volume）为单位组织，一个group内包含多台storage机器，数据互为备份，存储空间以group内容量最小的storage为准，所以建议group内的多个storage尽量配置相同，以免造成存储空间的浪费。</p>
+<p>​        以group为单位组织存储能方便的进行应用隔离、负载均衡、副本数定制（group内storage server数量即为该group的副本数），比如将不同应用数据存到不同的group就能隔离应用数据，同时还可根据应用的访问特性来将应用分配到不同的group来做负载均衡；缺点是group的容量受单机存储容量的限制，同时当group内有机器坏掉时，数据恢复只能依赖group内地其他机器，使得恢复时间会很长。</p>
+<p>​        group内每个storage的存储依赖于本地文件系统，storage可配置多个数据存储目录，比如有10块磁盘，分别挂载在/data/disk1-/data/disk10，则可将这10个目录都配置为storage的数据存储目录。</p>
+<p>​        storage接受到写文件请求时，会根据配置好的规则（后面会介绍），选择其中一个存储目录来存储文件。为了避免单个目录下的文件数太多，在storage第一次启动时，会在每个数据存储目录里创建2级子目录，每级256个，总共65536个文件，新写的文件会以hash的方式被路由到其中某个子目录下，然后将文件数据直接作为一个本地文件存储到该目录中。</p>
+<h3 id="三、FastDFS的存储策略"><a href="#三、FastDFS的存储策略" class="headerlink" title="三、FastDFS的存储策略"></a>三、FastDFS的存储策略</h3><p>为了支持大容量，存储节点（服务器）采用了分卷（或分组）的组织方式。存储系统由一个或多个卷组成，卷与卷之间的文件是相互独立的，所有卷的文件容量累加就是整个存储系统中的文件容量。一个卷可以由一台或多台存储服务器组成，一个卷下的存储服务器中的文件都是相同的，卷中的多台存储服务器起到了冗余备份和负载均衡的作用。</p>
+<p>在卷中增加服务器时，同步已有的文件由系统自动完成，同步完成后，系统自动将新增服务器切换到线上提供服务。</p>
+<p>当存储空间不足或即将耗尽时，可以动态添加卷。只需要增加一台或多台服务器，并将它们配置为一个新的卷，这样就扩大了存储系统的容量。</p>
+<h4 id="四、FastDFS的上传过程"><a href="#四、FastDFS的上传过程" class="headerlink" title="四、FastDFS的上传过程"></a>四、FastDFS的上传过程</h4><p>FastDFS向使用者提供基本文件访问接口，比如upload、download、append、delete等，以客户端库的方式提供给用户使用。</p>
+<p><img src="https://img-blog.csdn.net/20160122094705926" alt="è¿éåå¾çæè¿°"></p>
+<p>根据前边的讲解，我们知道Storage Server会定期的向Tracker Server发送自己的存储信息。当Tracker Server Cluster中的Tracker Server不止一个时，各个Tracker之间的关系是对等的，所以客户端上传时可以选择任意一个Tracker。</p>
+<p>当Tracker收到客户端上传文件的请求时，会为该文件分配一个可以存储文件的group，当选定了group后就要决定给客户端分配group中的哪一个storage server。当分配好storage server后，客户端向storage发送写文件请求，storage将会为文件分配一个数据存储目录。然后为文件分配一个fileid，最后根据以上的信息生成文件名存储文件。文件名的格式如下： </p>
+<p><img src="https://img-blog.csdn.net/20160122094626473" alt="img"></p>
+<h3 id="五、FastDFS的文件同步"><a href="#五、FastDFS的文件同步" class="headerlink" title="五、FastDFS的文件同步"></a>五、FastDFS的文件同步</h3><p>写文件时，客户端将文件写至group内一个storage server即认为写文件成功，storage server写完文件后，会由后台线程将文件同步至同group内其他的storage server。</p>
+<p>每个storage写文件后，同时会写一份binlog，binlog里不包含文件数据，只包含文件名等元信息，这份binlog用于后台同步，storage会记录向group内其他storage同步的进度，以便重启后能接上次的进度继续同步；进度以时间戳的方式进行记录，所以最好能保证集群内所有server的时钟保持同步。</p>
+<p>storage的同步进度会作为元数据的一部分汇报到tracker上，tracke在选择读storage的时候会以同步进度作为参考。</p>
+<p>比如一个group内有A、B、C三个storage server，A向C同步到进度为T1 (T1以前写的文件都已经同步到B上了），B向C同步到时间戳为T2（T2 &gt; T1)，tracker接收到这些同步进度信息时，就会进行整理，将最小的那个做为C的同步时间戳，本例中T1即为C的同步时间戳为T1（即所有T1以前写的数据都已经同步到C上了）；同理，根据上述规则，tracker会为A、B生成一个同步时间戳。</p>
+<h3 id="六、FastDFS的文件下载"><a href="#六、FastDFS的文件下载" class="headerlink" title="六、FastDFS的文件下载"></a>六、FastDFS的文件下载</h3><p><img src="https://img-blog.csdn.net/20160122094649404" alt="img"></p>
+<p>客户端uploadfile成功后，会拿到一个storage生成的文件名，接下来客户端根据这个文件名即可访问到该文件。</p>
+<p>跟upload file一样，在downloadfile时客户端可以选择任意tracker server。tracker发送download请求给某个tracker，必须带上文件名信息，tracke从文件名中解析出文件的group、大小、创建时间等信息，然后为该请求选择一个storage用来服务读请求。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/06/23/常见的几种存储方案/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-IDEA下载安装及使用说明" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -185,8 +355,9 @@
 <li>然后下载<strong>左边</strong>的<strong>专业版</strong>的<strong>安装版</strong>（尽量不要下载压缩包版本）我这里  选择Ultimate-》Windows，JBR11（exe）</li>
 <li>然后跳转到一个页面，点击<strong>direct link</strong>，选择本地保存路径。</li>
 </ol>
-<h1 id="IDEA的安装（含破解）"><a href="#IDEA的安装（含破解）" class="headerlink" title="IDEA的安装（含破解）"></a>IDEA的安装（含破解）</h1><p>PS: IDEA旗舰版本默认免费试用一个月，所以这里得破解（也就是仅仅一年期）  网上好多教授大家破解IDEA的（两种方式：一种为私人搭建的授权服务器，好多被封，可以自己搭建不过需要服务一直在线，否则下次打开IDEA会提示有问题。另外一种为提供注册码，通过屏蔽到jetbrains的通信，达到一码多用的目的），不过网上绝大多数提供的方法针对新的版本2019破解不适用，这里记录下我找到的破解步骤（我的版本为2019.1.3的版本，破解成功）</p>
-<p>第一步将：0.0.0.0 <a href="https://account.jetbrains.com:443加入hosts，不需要0.0.0.0" target="_blank" rel="noopener">https://account.jetbrains.com:443加入hosts，不需要0.0.0.0</a> <a href="http://www.jetbrains.com（很多教程会要求这个，但是针对2019版本这里不能这样设置，可能是JetBrai有限制），不然会影响idea的某些功能" target="_blank" rel="noopener">www.jetbrains.com（很多教程会要求这个，但是针对2019版本这里不能这样设置，可能是JetBrai有限制），不然会影响idea的某些功能</a><br>第二步 打开cmd终端，输入ipconfig /flushdns，然后回车刷新dns缓存<br>第三步 输入lanyu序列号（<a href="http://idea.lanyus.com/" target="_blank" rel="noopener">http://idea.lanyus.com/</a> 首页最底部“获取注册码”），成功开车</p>
+<h1 id="IDEA的安装（含破解）"><a href="#IDEA的安装（含破解）" class="headerlink" title="IDEA的安装（含破解）"></a>IDEA的安装（含破解）</h1><p>PS: IDEA旗舰版本默认免费试用一个月，所以这里得破解（好多手段也就是将免费一个月改为一年期）  网上好多教授大家破解IDEA的（两种方式：一种为私人搭建的授权服务器，好多被封，可以自己搭建不过需要服务一直在线，否则下次打开IDEA会提示有问题。另外一种为提供注册码，通过屏蔽到jetbrains的通信，达到一码多用的目的），不过网上绝大多数提供的方法针对新的版本2019破解不适用，这里记录下我找到的破解步骤（我的版本为2019.1.3的版本，破解成功）</p>
+<p>第一步将：0.0.0.0 <a href="https://account.jetbrains.com:443加入hosts，不需要0.0.0.0" target="_blank" rel="noopener">https://account.jetbrains.com:443加入hosts，不需要0.0.0.0</a> <a href="http://www.jetbrains.com（很多教程会要求这个，但是针对2019版本这里不能这样设置，可能是JetBrai有限制），不然会影响idea的某些功能" target="_blank" rel="noopener">www.jetbrains.com（很多教程会要求这个，但是针对2019版本这里不能这样设置，可能是JetBrai有限制），不然会影响idea的某些功能</a>, 参考如下链接url和截图说明。<br>第二步 打开cmd终端，输入ipconfig /flushdns，然后回车刷新dns缓存<br>第三步 输入lanyu序列号（<a href="http://idea.lanyus.com/" target="_blank" rel="noopener">http://idea.lanyus.com/</a> 首页最底部“获取注册码”），成功开车</p>
+<p><em>PS:该注册码也是定期有效，当发现无效后，可以去这里获取更新后的注册码</em></p>
 <p>参考：<a href="http://blog.lanyus.com/archives/174.html" target="_blank" rel="noopener">http://blog.lanyus.com/archives/174.html</a>   里面的评论给出的正解。</p>
 <p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1559959029967.png" alt="1559959029967"></p>
 <h1 id="IDEA的设置"><a href="#IDEA的设置" class="headerlink" title="IDEA的设置"></a>IDEA的设置</h1><h2 id="1-更换主题"><a href="#1-更换主题" class="headerlink" title="1. 更换主题"></a>1. 更换主题</h2><ol>
@@ -494,10 +665,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="以练来学"><a href="#以练来学" class="headerlink" title="以练来学"></a>以练来学</h2><ol>
-<li><p>jar包运行web服务，提供web用户名和密码登录功能，其中用户名和密码需要使用数据库。</p>
-</li>
-<li><p>github项目+热部署阿里云上。</p>
-</li>
+<li>jar包运行web服务，提供web用户名和密码登录功能，其中用户名和密码需要使用数据库。</li>
+<li>github项目+热部署阿里云上。</li>
 </ol>
 
       
@@ -816,134 +985,6 @@
 
 
   
-    <article id="post-SSH相关操作" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/01/SSH相关操作/">SSH相关操作</a>
-    </h1>
-  
-
-		<!-- 显示阅读和评论数 -->
-        
-        
-        <a href="/2018/12/01/SSH相关操作/" class="archive-article-date">
-  	<time datetime="2018-12-01T12:21:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/01/SSH相关操作/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-PKI学习" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/01/PKI学习/">PKI学习</a>
-    </h1>
-  
-
-		<!-- 显示阅读和评论数 -->
-        
-        
-        <a href="/2018/12/01/PKI学习/" class="archive-article-date">
-  	<time datetime="2018-12-01T12:21:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/01/PKI学习/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1041,15 +1082,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具， markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">软件工具</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具， markdown</a>
               </li>
             
             <div class="clearfix"></div>
